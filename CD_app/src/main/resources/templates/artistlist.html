@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6" xmlns="http://www.w3.org/1999/xhtml">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<head>
+<meta charset="UTF-8">
+<title>Artists</title>
+</head>
+<body>
+<h1>Artists</h1>
+<table class="table table-striped">
+<tr>
+<th>Name</th>
+</tr>
+<tr th:each = "artists : ${artists}">
+<td th:text="${artists.artist_name}"></td>
+<td th:text="${artists.country}"></td>
+<td th:text="${artists.year_formed}"></td>
+<td><a th:href="@{/deleteartist/{id}(id=${artists.id})}"><button class="btn btn-danger">Delete</button></a></td>
+
+</tr>
+</table>
+	<a href="/addartist">New Artist</a>
+	<a href="/addalbum">New Album</a>
+	<a href="/albumlist">Albums</a>
+	 <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+	
+</body>
+</html>

@@ -16,11 +16,24 @@ public class Album {
 	private Long album_Id;
 	private String album_name;
 	private int album_year;
+	
+	@ManyToOne
+	@JsonIgnoreProperties ("albums") 
+	@JoinColumn(name = "artist_Id")
+	
+	private Artist artist;
 
+	public Artist getArtist() {
+		return artist;
+	}
+	public void setArtist(Artist artist) {
+		this.artist = artist;
+	}
 	@ManyToOne
 	@JsonIgnoreProperties ("albums") 
 	@JoinColumn(name = "category_Id")
 	private Category category;
+	
 
 	public Long getAlbum_Id() {
 		return album_Id;
@@ -48,11 +61,12 @@ public class Album {
 		this.category = category;
 	}
 
-	public Album(String album_name, int album_year, Category category) {
+	public Album(String album_name, int album_year, Category category, Artist artist) {
 		super();
 		this.album_name = album_name;
 		this.album_year = album_year;
 		this.category = category;
+		this.artist = artist;
 	}
 
 	public Album() {
@@ -60,6 +74,7 @@ public class Album {
 		this.album_name = null;
 		this.album_year = 0;
 		this.category = null;
+		this.artist = null;
 	}
 	@Override
 	public String toString() {

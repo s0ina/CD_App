@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<head>
+    <title>addartist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add artist</h1>
+	<div>
+		<form th:object="${artist}" th:action="@{saveartist}" action="#" method="post">
+		  	<label for="artist_name">Name</label>
+			<input type="text" id="artist_name" th:field="*{artist_name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="country">Country</label>
+			<input type="text" id="country" th:field="*{country}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="year_formed">Active since</label>
+			<input type="text" th:field="*{year_formed}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save"></input>
+			<button class="btn btn-success"></button>
+		</form>
+		<a href="/artistlist">Cancel</a>
+	</div>
+</body>
+</html>
