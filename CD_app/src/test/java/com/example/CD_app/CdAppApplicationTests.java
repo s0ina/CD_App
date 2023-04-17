@@ -16,7 +16,6 @@ class CdAppApplicationTests {
 
 	@Test
 	void contextLoads() {
-
 		assertThat(albumcontroller).isNotNull();
 	}
 	

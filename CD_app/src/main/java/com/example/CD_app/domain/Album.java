@@ -26,6 +26,7 @@ public class Album {
 	public Artist getArtist() {
 		return artist;
 	}
+	
 	public void setArtist(Artist artist) {
 		this.artist = artist;
 	}
@@ -38,18 +39,23 @@ public class Album {
 	public Long getAlbum_Id() {
 		return album_Id;
 	}
+	
 	public void setAlbum_Id(Long album_Id) {
 		this.album_Id = album_Id;
 	}
+	
 	public String getAlbum_name() {
 		return album_name;
 	}
+	
 	public void setAlbum_name(String album_name) {
 		this.album_name = album_name;
 	}
+	
 	public int getAlbum_year() {
 		return album_year;
 	}
+	
 	public void setAlbum_year(int album_year) {
 		this.album_year = album_year;
 	}
@@ -57,6 +63,7 @@ public class Album {
 	public Category getCategory() {
 		return category;
 	}
+	
 	public void setCategory(Category category) {
 		this.category = category;
 	}

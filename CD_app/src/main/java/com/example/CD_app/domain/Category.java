@@ -16,15 +16,19 @@ public class Category {
 	public Long getCategory_Id() {
 		return category_Id;
 	}
+	
 	public void setCategory_Id(Long category_Id) {
 		this.category_Id = category_Id;
 	}
+	
 	public String getCategory_name() {
 		return category_name;
 	}
+	
 	public void setCategory_name(String category_name) {
 		this.category_name = category_name;
 	}
+	
 	public Category(String category_name) {
 		super();
 		this.category_name = category_name;
@@ -34,15 +38,10 @@ public class Category {
 		super();
 		this.category_name = null;
 	}
+	
 	@Override
 	public String toString() {
 		return "Category [category_Id=" + category_Id + ", category_name=" + category_name + "]";
 	}
 	
-	
-	
-	
-	
-	
-
 }

@@ -45,6 +45,7 @@ public class AlbumController {
 		albumrepository.deleteById(album_Id);
 		return "redirect:/albumlist";
 	} 
+	
 	//Lisää albumin
 	@RequestMapping(value = "/addalbum", method = RequestMethod.GET)
 	@PreAuthorize("hasAuthority('ADMIN')")
@@ -52,17 +53,20 @@ public class AlbumController {
 		model.addAttribute("album", new Album()); 
 		return "/addalbum";
 	}
+	
 	//Tallentaa albumin
 	@RequestMapping(value = "/savealbum", method = RequestMethod.POST)
 	public String saveAlbum(@ModelAttribute Album album) {
 		albumrepository.save(album);
 		return "redirect:/albumlist";
 	}
+	
 	//Palauttaa json-listan kaikista albumeista
 	@RequestMapping(value="/api/albums", method = RequestMethod.GET)
 	public @ResponseBody List<Album> AlbumListRest() {	
 		return (List<Album>) albumrepository.findAll();
 	}
+	
 	//Hakee albumin id:llä
 	@RequestMapping(value="/api/albums/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Album> findAlbumRest(@PathVariable("id") Long album_Id) {	
@@ -74,6 +78,7 @@ public class AlbumController {
 	Album newAlbum(@RequestBody Album newAlbum) {
 		return albumrepository.save(newAlbum);
 	}
+	
 	//poistaa albumin id:llä
 	@DeleteMapping("/api/albums/{id}")
 	public Iterable<Album> deleteAlbum(@PathVariable("id") Long album_Id) {
@@ -87,6 +92,5 @@ public class AlbumController {
 		editedAlbum.setAlbum_Id(album_Id);
 		return albumrepository.save(editedAlbum);
 	}
-
 
 }

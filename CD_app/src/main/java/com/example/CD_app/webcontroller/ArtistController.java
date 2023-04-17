@@ -33,6 +33,7 @@ public class ArtistController {
 		model.addAttribute("artists", artists);
 		return "artistlist";
 	}
+	
 	//poistaa artistin id:llä
 	@RequestMapping(value = "/deleteartist/{id}", method = RequestMethod.GET)
 	@PreAuthorize("hasAuthority('ADMIN')")
@@ -40,6 +41,7 @@ public class ArtistController {
 		artistrepository.deleteById(artist_Id);
 		return "redirect:/artistlist";
 	} 
+	
 	//lisää artistin
 	@RequestMapping(value = "/addartist", method = RequestMethod.GET)
 	@PreAuthorize("hasAuthority('ADMIN')")
@@ -47,17 +49,20 @@ public class ArtistController {
 		model.addAttribute("artist", new Artist()); 
 		return "/addartist";
 	}
+	
 	//tallentaa artistin
 	@RequestMapping(value = "/saveartist", method = RequestMethod.POST)
 	public String saveArtist(@ModelAttribute Artist artist) {
 		artistrepository.save(artist);
 		return "redirect:/artistlist";
 	}
+	
 	//Palautta json-listan kaikista artisteista
 	@RequestMapping(value="/api/artists", method = RequestMethod.GET)
 	public @ResponseBody List<Artist> ArtistListRest() {
 		return (List<Artist>) artistrepository.findAll();
 	}
+	
 	//hakee artistin id:llä
 	@RequestMapping(value="/api/artists/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Artist> findArtistRest(@PathVariable("id") Long artist_Id) {	
@@ -69,6 +74,7 @@ public class ArtistController {
 	Artist newArtist(@RequestBody Artist newArtist) {
 		return artistrepository.save(newArtist);
 	}
+	
 	//poistaa artistin id:llä
 	@DeleteMapping("/api/artists/{id}")
 	public Iterable<Artist> deleteArtist(@PathVariable("id") Long artist_Id) {

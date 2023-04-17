@@ -36,50 +36,12 @@ public class WebSecurityConfig {
 	          .and()
 	     .httpBasic();
 	     return http.build();
-	    
-	     
-			
-			
-			/*
-			http.authorizeHttpRequests()
-				.requestMatchers("/", "/error", "/home","/h2-console/**", "/h2-console").permitAll()
-				.requestMatchers(toH2Console()).permitAll();
-			
-			//http.authorizeHttpRequests().anyRequest().authenticated();
-			http.authorizeHttpRequests().anyRequest().permitAll();
-			
-			//http.csrf().ignoringRequestMatchers(toH2Console());
-
-			http.headers().frameOptions().disable();
-			http.csrf().disable();
-			
-			//http.formLogin()
-			//	.defaultSuccessUrl("/albumlist", true)
-			//	.permitAll();
-			
-			http.logout()
-				.permitAll();
-			
-			//http.httpBasic();
-			*/
-		       /*
-			http.authorizeHttpRequests().anyRequest().denyAll(); //authenticated();
-			//http.authorizeHttpRequests().requestMatchers("/h2/**").permitAll();
-			http.headers().frameOptions().disable();
-			http.csrf().disable();
-
-*/
-
-
-		
-
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-    
     
 
 }
