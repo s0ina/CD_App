@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.CD_app.webcontroller.AlbumController;
+import com.example.CD_app.webcontroller.ArtistController;
 
 @SpringBootTest
 class CdAppApplicationTests {
@@ -18,6 +19,7 @@ class CdAppApplicationTests {
 	void contextLoads() {
 		assertThat(albumcontroller).isNotNull();
 	}
+	
 	
 	
 }
